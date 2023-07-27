@@ -1,6 +1,6 @@
 {
-  "name": "crud-angular",
-  "version": "0.0.0",
+  "name": "courses-crud-angular",
+  "version": "0.0.1",
   "scripts": {
     "ng": "ng",
     "start": "ng serve",
