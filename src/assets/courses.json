@@ -2,14 +2,14 @@
   {
     "_id": "1",
     "name": "Angular",
-    "category": "Front-End"
+    "category": "front-end"
   }, {
     "_id": "2",
     "name": "React",
-    "category": "Front-End"
+    "category": "front-end"
   }, {
     "_id": "3",
     "name": "Spring Boot",
-    "category": "Back-End"
+    "category": "back-end"
   }
 ]
