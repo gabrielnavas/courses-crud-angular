@@ -1,14 +1,23 @@
-<table mat-table [dataSource]="courses">
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Nome </th>
-    <td mat-cell *matCellDef="let row"> {{ row.name }} </td>
-  </ng-container>
+<mat-card>
 
-  <ng-container matColumnDef="category">
-    <th mat-header-cell *matHeaderCellDef> Categoria </th>
-    <td mat-cell *matCellDef="let row"> {{ row.category }} </td>
-  </ng-container>
+  <mat-toolbar color="primary">
+    <span>hello world</span>
+  </mat-toolbar>
 
-  <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
-  <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
-</table>
+  <mat-card-content>
+    <table mat-table [dataSource]="courses">
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef> Nome </th>
+        <td mat-cell *matCellDef="let row"> {{ row.name }} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="category">
+        <th mat-header-cell *matHeaderCellDef> Categoria </th>
+        <td mat-cell *matCellDef="let row"> {{ row.category }} </td>
+      </ng-container>
+    
+      <tr mat-header-row *matHeaderRowDef="columnsToDisplay"></tr>
+      <tr mat-row *matRowDef="let row; columns: columnsToDisplay"></tr>
+    </table>
+  </mat-card-content>
+</mat-card>
