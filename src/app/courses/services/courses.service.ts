@@ -11,7 +11,7 @@ import { ErrorDialogComponent } from 'src/app/shared/components/error-dialog/err
 })
 export class CoursesService {
 
-  private readonly API = '/assets/courses.json'
+  private readonly API = 'http://localhost:8080/api/courses'
 
   constructor(
     private readonly httpClient: HttpClient,
