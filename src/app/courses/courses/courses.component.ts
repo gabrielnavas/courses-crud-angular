@@ -11,13 +11,15 @@ import { CoursesService } from '../services/courses.service';
 })
 export class CoursesComponent implements OnInit {
 
-  courses: Observable<Course[]>
+  courses$: Observable<Course[]>
   columnsToDisplay = ['name', 'category'];
+
+  chegou: boolean = true
 
   constructor(
     private readonly courseService: CoursesService 
   ) {
-    this.courses = this.courseService.list()
+    this.courses$ = this.courseService.list()
   }
 
   ngOnInit(): void { }
