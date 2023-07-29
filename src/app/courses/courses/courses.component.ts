@@ -3,6 +3,7 @@ import { Observable, catchError, of } from 'rxjs';
 
 import { Course } from '../model/course';
 import { CoursesService } from '../services/courses.service';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -12,12 +13,14 @@ import { CoursesService } from '../services/courses.service';
 export class CoursesComponent implements OnInit {
 
   courses$: Observable<Course[]>
-  columnsToDisplay = ['name', 'category'];
+  columnsToDisplay = ['name', 'category', 'actions'];
 
   chegou: boolean = true
 
   constructor(
-    private readonly courseService: CoursesService 
+    private readonly courseService: CoursesService,
+    private readonly router: Router,
+    private readonly route: ActivatedRoute,
   ) {
     this.courses$ = this.courseService.list().pipe(
       catchError(error => {
@@ -28,4 +31,8 @@ export class CoursesComponent implements OnInit {
   }
 
   ngOnInit(): void { }
+
+  onAdd(): void {
+    this.router.navigate(['new'], { relativeTo: this.route });
+  }
 }
