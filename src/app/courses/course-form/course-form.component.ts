@@ -1,4 +1,6 @@
 import { Component } from '@angular/core';
+import { FormBuilder, FormGroup } from '@angular/forms';
+import { Course } from '../model/course';
 
 @Component({
   selector: 'app-course-form',
@@ -7,4 +9,23 @@ import { Component } from '@angular/core';
 })
 export class CourseFormComponent {
 
+  form: FormGroup
+
+  constructor(
+    private formBuilder: FormBuilder
+  ) {
+    this.form = formBuilder.group({
+      _id: [null],
+      name: [null],
+      category: [null]
+    })
+  }
+
+  onSubmit(): void {
+
+  }
+
+  onCancel(): void {
+
+  }
 }
