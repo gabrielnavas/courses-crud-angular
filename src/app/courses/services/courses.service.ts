@@ -18,6 +18,10 @@ export class CoursesService {
     private readonly dialog: MatDialog,
   ) { }
 
+  save(record: Course): Observable<Course> {
+    return this.httpClient.post<Course>(this.API, record).pipe(first())
+  }
+
   list(): Observable<Course[]> {
     return this.httpClient.get<Course[]>(this.API)
       .pipe(
