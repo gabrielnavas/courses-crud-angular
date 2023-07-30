@@ -1,10 +1,8 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup } from '@angular/forms';
-import { Course } from '../model/course';
 import { CoursesService } from '../services/courses.service';
-import { MatProgressSpinner } from '@angular/material/progress-spinner';
 import { MatSnackBar } from '@angular/material/snack-bar';
-import { Router } from '@angular/router';
+import { Location } from '@angular/common';
 
 @Component({
   selector: 'app-course-form',
@@ -21,7 +19,7 @@ export class CourseFormComponent {
     private formBuilder: FormBuilder,
     private courseService: CoursesService,
     private snackBar: MatSnackBar,
-    private router: Router
+    private location: Location
   ) {
     this.form = formBuilder.group({
       name: [null],
@@ -37,20 +35,21 @@ export class CourseFormComponent {
     })
     .subscribe({
       next: (v) => console.log(v),
-      error: (e) => this.onSucess(),
-      complete: () => this.onError()
+      error: (e) => this.onError(),
+      complete: () => this.onSucess()
     })
   }
 
   onCancel(): void {
-
+    this.location.back()
   }
 
   private onError() {
-    this.snackBar.open('Curso salvo!', 'X', { duration: 10000 })
+    this .snackBar.open('Tente novamente mais tarde', 'X', { duration: 5000 })
   }
 
   private onSucess() {
-    this .snackBar.open('Tente novamente mais tarde', 'X', { duration: 5000 })
+    this.snackBar.open('Curso salvo!', 'X', { duration: 10000 })
+    this.location.back()
   }
 }
